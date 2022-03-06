@@ -1,0 +1,24 @@
+server:
+  port: 8008                 # 服务端口(原本为8006，为了使用微信登录的回调，需要修改为8160)
+spring:
+  application:
+    name: service-statistics # 微服务名称
+  profiles:
+    active: dev              # 设置为开发环境
+  datasource:                # 配置数据源
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/guli_edu?characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: root
+    password: root
+  jackson:                            # 配置json全局时间
+    date-format: yyyy-MM-dd HH:mm:ss  # 配置返回json的时间格式
+    time-zone: GMT+8                  # json是格林尼治时间，和我们相差8小时，需要加上8
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848   # 配置nacos
+mybatis-plus:                         # mybatis-plus日志
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:com/atguigu/statisticsservice/mapper/xml/*.xml
+
