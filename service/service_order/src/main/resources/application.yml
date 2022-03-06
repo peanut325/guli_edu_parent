@@ -35,5 +35,12 @@ mybatis-plus:                         # mybatis-plus日志
 feign:
   hystrix:
     enabled: true                     # 开启熔断机制
-
-
+wx:
+  pay:
+    appId: wx74862e0dfcf69954   #关联的公众号appid
+    partner: 1558950191         #商户号
+    partnerkey: T6m9iK73b0kn9g5v426MKfHQH7X8rKwb  # 商户key
+    notifyurl: http://guli.shop/api/order/weixinPay/weixinNotify
+    spbillCreateIp: 127.0.0.1
+    sendAddress: https://api.mch.weixin.qq.com/pay/unifiedorder   # wx提供获取二维码地址的请求地址
+    sendAddressPay: https://api.mch.weixin.qq.com/pay/orderquery  # wx提供支付的地址
